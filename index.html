@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ספרי ארץ ישראל — קטלוג</title>
+<meta name="description" content="7 ספרים וקונטרסים במעלת ארץ ישראל ובחובת יישובה — לקריאה חינם ולהזמנה בדפוס.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="ספרי ארץ ישראל">
+<meta property="og:description" content="7 ספרים וקונטרסים במעלת ארץ ישראל ובחובת יישובה — לקריאה חינם ולהזמנה בדפוס.">
+<meta property="og:url" content="https://yudataub.github.io/eretz/">
+<meta property="og:image" content="https://yudataub.github.io/eretz/covers/ey12.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&amp;family=Frank+Ruhl+Libre:wght@500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2a2118;
+  --ink-soft:#6b5d4f;
+  --gold:#b8860b;
+  --gold-light:#d4af37;
+  --paper:#fdfbf6;
+  --card:#ffffff;
+  --line:#e8e0d3;
+  --shadow:rgba(90,70,40,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Heebo',system-ui,sans-serif;
+  color:var(--ink);
+  direction:rtl;
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(212,175,55,.10), transparent 60%),
+    radial-gradient(1000px 500px at 0% 10%, rgba(124,58,237,.06), transparent 55%),
+    linear-gradient(180deg,#f7f2e8 0%, #fdfbf6 30%);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  text-align:center;
+  padding:3.4rem 1.5rem 2.4rem;
+  background:
+    radial-gradient(700px 340px at 50% -40%, rgba(212,175,55,.22), transparent 70%),
+    linear-gradient(160deg,#2a2118 0%, #3a2e20 55%, #4a3a26 100%);
+  color:#f7efe0;
+  overflow:hidden;
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(212,175,55,.05) 0 2px, transparent 2px 30px);
+  opacity:.5;pointer-events:none;
+}
+.hero-crown{font-size:2.2rem;margin-bottom:.5rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));}
+.hero h1{
+  font-family:'Frank Ruhl Libre',serif;
+  font-weight:900;
+  font-size:clamp(2rem,5vw,3.2rem);
+  letter-spacing:.5px;
+  background:linear-gradient(180deg,#fff6e0,#e6c35c 70%,#caa12f);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:.5rem;
+  position:relative;
+}
+.hero-sub{
+  font-size:clamp(.95rem,2vw,1.12rem);
+  color:#e8d9b8;
+  font-weight:300;
+  letter-spacing:.3px;
+  max-width:640px;margin:0 auto;
+}
+.hero-stats{
+  display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+  margin-top:1.6rem;position:relative;
+}
+.hstat{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:14px;
+  padding:.55rem 1.2rem;
+  backdrop-filter:blur(6px);
+  min-width:96px;
+}
+.hstat b{display:block;font-size:1.45rem;font-weight:800;color:var(--gold-light);font-family:'Frank Ruhl Libre',serif;}
+.hstat span{font-size:.78rem;color:#cdbd9a;letter-spacing:.5px;}
+
+/* ===== SEARCH ===== */
+.search-wrap{position:relative;max-width:600px;margin:1.8rem auto 0;}
+.search-box{
+  width:100%;
+  padding:.95rem 3rem .95rem 1.4rem;
+  border-radius:999px;
+  border:1.5px solid rgba(212,175,55,.45);
+  background:rgba(255,255,255,.95);
+  color:var(--ink);
+  font-size:1.02rem;
+  font-family:inherit;
+  outline:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  transition:border-color .2s, box-shadow .2s;
+}
+.search-box:focus{border-color:var(--gold);box-shadow:0 8px 30px rgba(184,134,11,.3);}
+.search-box::placeholder{color:#a8987f;}
+.search-icon{
+  position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);
+  font-size:1.1rem;pointer-events:none;opacity:.7;
+}
+
+/* ===== STICKY NAV ===== */
+.nav-bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(253,251,246,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  padding:.7rem 1rem;
+  overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;
+  box-shadow:0 4px 14px rgba(90,70,40,.06);
+}
+.nav-bar::-webkit-scrollbar{display:none;}
+.nav-inner{display:inline-flex;gap:.45rem;align-items:center;padding:0 .3rem;}
+.nav-pill{
+  font-family:inherit;font-size:.85rem;font-weight:500;
+  padding:.45rem .95rem;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--line);
+  background:#fff;color:var(--ink-soft);
+  white-space:nowrap;transition:all .18s;
+}
+.nav-pill:hover{border-color:var(--c);color:var(--c);transform:translateY(-1px);}
+.nav-pill.active{background:var(--c);border-color:var(--c);color:#fff;box-shadow:0 4px 12px color-mix(in srgb,var(--c) 40%, transparent);}
+.nav-all{
+  font-family:inherit;font-size:.85rem;font-weight:700;
+  padding:.45rem 1.05rem;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--gold);
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:#fff;white-space:nowrap;transition:all .18s;
+  box-shadow:0 4px 12px rgba(184,134,11,.3);
+}
+.nav-all:hover{transform:translateY(-1px);}
+
+/* ===== CONTENT ===== */
+.content{max-width:1240px;margin:0 auto;padding:2.2rem 1.3rem 4rem;}
+
+.cat-section{margin-bottom:2.8rem;scroll-margin-top:70px;}
+.cat-head{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-bottom:1.2rem;padding-bottom:.8rem;
+  border-bottom:2px solid var(--c);
+  position:relative;
+}
+.cat-head-right{display:flex;align-items:center;gap:.85rem;}
+.cat-emoji{
+  font-size:1.7rem;
+  width:52px;height:52px;flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:14px;
+  background:color-mix(in srgb,var(--c) 12%, #fff);
+  border:1.5px solid color-mix(in srgb,var(--c) 30%, transparent);
+}
+.cat-name{font-family:'Frank Ruhl Libre',serif;font-size:1.45rem;font-weight:700;line-height:1.2;}
+.cat-name a{color:var(--ink);text-decoration:none;transition:color .15s;}
+.cat-name a:hover{color:var(--c);}
+.cat-count{font-size:.82rem;color:var(--ink-soft);font-weight:500;}
+.cat-folder-link{
+  font-size:.82rem;color:var(--c);text-decoration:none;font-weight:600;
+  padding:.4rem .85rem;border-radius:10px;
+  border:1.5px solid color-mix(in srgb,var(--c) 30%, transparent);
+  transition:all .15s;white-space:nowrap;
+}
+.cat-folder-link:hover{background:var(--c);color:#fff;border-color:var(--c);}
+
+.books-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1.3rem;
+}
+
+/* ===== BOOK CARD ===== */
+.book{
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  text-decoration:none;color:inherit;
+  box-shadow:0 3px 10px var(--shadow);
+  transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s, border-color .22s;
+  position:relative;
+}
+.book:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.book:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px var(--shadow);
+  border-color:color-mix(in srgb,var(--c) 45%, transparent);
+}
+.book-cover{
+  flex-shrink:0;width:100%;aspect-ratio:3/4;
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--c), color-mix(in srgb,var(--c) 70%, #000));
+  border-bottom:3px solid color-mix(in srgb,var(--c) 55%, transparent);
+}
+.book-cover img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .3s ease;
+}
+.book:hover .book-cover img{transform:scale(1.045);}
+.cover-letter{
+  position:absolute;bottom:.5rem;inset-inline-end:.5rem;
+  width:28px;height:28px;border-radius:8px;
+  display:grid;place-items:center;
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:.95rem;font-weight:900;color:#fff;
+  background:color-mix(in srgb,var(--c) 80%, #000 20%);
+  box-shadow:0 2px 6px rgba(0,0,0,.35);
+  text-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+.book-body{flex:1;padding:.95rem 1.05rem 1rem;display:flex;flex-direction:column;min-width:0;}
+.buy-btn{
+  display:inline-flex;align-items:center;gap:.3rem;
+  margin-inline-start:auto;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:#fff;font-weight:700;font-size:.74rem;
+  padding:.35rem .75rem;border-radius:999px;text-decoration:none;
+  box-shadow:0 3px 10px rgba(184,134,11,.35);
+  transition:transform .15s, box-shadow .15s;
+  white-space:nowrap;
+}
+.buy-btn:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(184,134,11,.45);}
+.book-top{display:flex;align-items:flex-start;gap:.5rem;justify-content:space-between;margin-bottom:.35rem;}
+.book-title{
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:1.08rem;font-weight:700;line-height:1.3;color:var(--ink);
+}
+.book-desc{
+  font-size:.86rem;color:var(--ink-soft);line-height:1.55;
+  flex:1;margin-bottom:.7rem;
+}
+.book-foot{
+  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+  padding-top:.6rem;border-top:1px dashed var(--line);
+  font-size:.74rem;
+}
+.ftype{color:var(--ink-soft);font-weight:500;}
+.fsize{color:#a8987f;}
+.tag-chip{
+  background:color-mix(in srgb,var(--c) 12%, #fff);
+  color:var(--c);font-weight:600;
+  padding:.1rem .5rem;border-radius:999px;
+  border:1px solid color-mix(in srgb,var(--c) 25%, transparent);
+}
+.lang-badge{
+  flex-shrink:0;
+  font-size:.68rem;font-weight:700;letter-spacing:.5px;
+  background:var(--ink);color:#fff;
+  padding:.12rem .42rem;border-radius:6px;
+}
+.open-cta{
+  margin-inline-start:auto;color:var(--c);font-weight:700;
+  opacity:0;transform:translateX(6px);transition:all .2s;
+}
+.book:hover .open-cta{opacity:1;transform:translateX(0);}
+
+/* hidden state for search/filter */
+.book.hide,.cat-section.hide{display:none;}
+
+.no-results{
+  text-align:center;padding:3rem 1rem;color:var(--ink-soft);
+  font-size:1.05rem;display:none;
+}
+.no-results.show{display:block;}
+
+/* ===== FOOTER ===== */
+.foot{
+  text-align:center;padding:2.2rem 1rem;
+  color:var(--ink-soft);font-size:.82rem;
+  border-top:1px solid var(--line);
+  background:rgba(255,255,255,.4);
+}
+.foot-deco{color:var(--gold);font-size:1.2rem;margin-bottom:.4rem;}
+
+@media (max-width:640px){
+  .hero{padding:2.6rem 1.1rem 2rem;}
+  .books-grid{grid-template-columns:repeat(2,1fr);gap:.8rem;}
+  .cat-folder-link{display:none;}
+  .cover-letter{width:24px;height:24px;font-size:.8rem;}
+}
+
+.quick-guide{
+  max-width:760px;margin:0 auto;padding:1.3rem 1.6rem;
+  background:linear-gradient(160deg,#fff8e8,#fdfbf6);
+  border:1.5px solid rgba(184,134,11,.35);
+  border-radius:16px;
+  box-shadow:0 4px 16px rgba(90,70,40,.08);
+  text-align:center;
+  position:relative;top:-1.2rem;
+}
+.quick-guide h2{
+  font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:800;
+  color:var(--gold);margin-bottom:.6rem;
+}
+.quick-guide p{font-size:.92rem;color:var(--ink-soft);line-height:1.7;margin:.35rem 0;}
+.quick-guide strong{color:var(--ink);}
+.quick-guide a{color:var(--gold);text-decoration:none;}
+.quick-guide a:hover{text-decoration:underline;}
+@media (max-width:640px){.quick-guide{top:-.6rem;padding:1.1rem 1.2rem;}}
+
+.also-chip{display:inline-block;margin:.1rem 0 .45rem;font-size:.72rem;font-weight:600;color:var(--c,#6b5d4f);
+  background:color-mix(in srgb,var(--c,#b8860b) 10%,#fff);border:1px dashed color-mix(in srgb,var(--c,#b8860b) 45%,#fff);
+  border-radius:999px;padding:.12rem .6rem;}
+.alt-link{font-size:.74rem;font-weight:600;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);
+  border-radius:999px;padding:.18rem .6rem;background:#fff;}
+.alt-link:hover{border-color:var(--gold);color:var(--gold);}
+.foot-love{display:block;margin-top:.45rem;font-family:'Frank Ruhl Libre',serif;font-size:1rem;color:var(--gold);}
+
+.cat-switch{display:inline-flex;align-items:center;gap:.5rem;margin:1rem auto 0;padding:.65rem 1.4rem;border-radius:999px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1206;font-weight:800;font-size:1rem;
+  text-decoration:none;box-shadow:0 6px 20px rgba(184,134,11,.35);transition:transform .15s,box-shadow .15s;}
+.cat-switch:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(184,134,11,.45);}
+.cat-switch small{font-weight:500;opacity:.8;font-size:.82rem;}
+
+.about{max-width:900px;margin:0 auto 2.4rem;display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap;
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.3rem 1.5rem;box-shadow:0 4px 16px var(--shadow);}
+.about img{width:220px;max-width:100%;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);}
+.about-body{flex:1;min-width:240px;}
+.about h2{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;margin-bottom:.4rem;}
+.about p{font-size:.93rem;color:var(--ink-soft);line-height:1.7;margin-bottom:.6rem;}
+.about-links{display:flex;flex-wrap:wrap;gap:.45rem;}
+.read-btn{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:700;color:var(--c);
+  border:1.5px solid color-mix(in srgb,var(--c) 40%,transparent);border-radius:999px;padding:.3rem .7rem;text-decoration:none;background:#fff;}
+.read-btn:hover{background:var(--c);color:#fff;}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="hero-crown">🏞️</div>
+<h1>ספרי ארץ ישראל</h1>
+<p class="hero-sub">מעלת הארץ וקדושתה · חובת יישובה · אהבת ציון בדברי חז״ל וגדולי ישראל — לקריאה חינם ולהזמנה בדפוס</p>
+<div class="hero-stats">
+<div class="hstat"><b>7</b><span>ספרים</span></div>
+<div class="hstat"><b>2</b><span>נושאים</span></div>
+</div>
+<a class="cat-switch" href="https://yudataub.github.io/aaa/catalog.html">📚 לקטלוג הספרים הראשי ←</a>
+<div class="search-wrap">
+<input class="search-box" id="search" oninput="doSearch(this.value)" placeholder="חיפוש לפי שם, מחבר או נושא…" type="text">
+<span class="search-icon">🔍</span>
+</div>
+</header>
+<section class="quick-guide">
+<h2>מדריך קצר</h2>
+<p>ספרים וקונטרסים של חכמים ומלקטים שונים, שכולם נועדו לעורר את אהבת ארץ ישראל. ליד כל ספר מופיע שם מחברו.</p>
+<p>לחיצה על ספר פותחת אותו <strong>לקריאה חינם</strong>. כפתור <strong>«🛒 להזמנה»</strong> מוביל להזמנת עותק מודפס או דיגיטלי.</p>
+<p>להזמנות בכמויות: <a dir="ltr" href="tel:0556785647"><strong>055-678-5647</strong></a>
+  או בדוא"ל: <a dir="ltr" href="mailto:8436092@gmail.com"><strong>8436092@gmail.com</strong></a></p>
+</section>
+<nav class="nav-bar"><div class="nav-inner">
+<button class="nav-all" onclick="showAll()">✦ הכל</button>
+<button class="nav-pill" onclick="filterCat('sefer')" style="--c:#15803D">📖 ספרים במעלת ארץ ישראל</button><button class="nav-pill" onclick="filterCat('kuntres')" style="--c:#0369A1">📰 קונטרסים וגליונות</button></div></nav>
+<main class="content" id="content">
+<section class="cat-section" data-cat="sefer" style="--c:#15803D"><div class="cat-head"><div class="cat-head-right"><span class="cat-emoji">📖</span><div><h2 class="cat-name">ספרים במעלת ארץ ישראל</h2><span class="cat-count">5 ספרים</span></div></div></div><div class="books-grid"><div class="book" data-desc="110 מאמרים מחז״ל ומגדולי ישראל לדורותיהם בשבח יישוב ארץ ישראל — לקט הרב משה צוריאל. הרב משה צוריאל" data-href="pdf/ey01.pdf" data-title="אוצרות ארץ חמדה" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#15803D"><div class="book-cover"><img alt="אוצרות ארץ חמדה" loading="lazy" src="covers/ey01.jpg"><span class="cover-letter" style="--c:#15803D">א</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">אוצרות ארץ חמדה</h3></div><p class="book-desc"><b>הרב משה צוריאל</b> · 110 מאמרים מחז״ל ומגדולי ישראל לדורותיהם בשבח יישוב ארץ ישראל — לקט הרב משה צוריאל.</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">132 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div><div class="book" data-desc="עשרה פרקים במעלת ארץ ישראל ובסדר הגאולה על פי דברי רבותינו ובפרט הגר״א (מודיעין עילית, תשע״ג). נחלת ה׳ — מודיעין עילית" data-href="pdf/ey05.pdf" data-title="בחר ה׳ בציון" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#15803D"><div class="book-cover"><img alt="בחר ה׳ בציון" loading="lazy" src="covers/ey05.jpg"><span class="cover-letter" style="--c:#15803D">ב</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">בחר ה׳ בציון</h3></div><p class="book-desc"><b>נחלת ה׳ — מודיעין עילית</b> · עשרה פרקים במעלת ארץ ישראל ובסדר הגאולה על פי דברי רבותינו ובפרט הגר״א (מודיעין עילית, תשע״ג).</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">342 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div><div class="book" data-desc="מעלות הדר בארץ ישראל והחיוב לדור בה — מחז״ל ומהזוהר הקדוש. מאת הרב אריאל כבריתי. הרב אריאל כבריתי" data-href="pdf/ey07.pdf" data-title="אהבת ארץ ישראל" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#15803D"><div class="book-cover"><img alt="אהבת ארץ ישראל" loading="lazy" src="covers/ey07.jpg"><span class="cover-letter" style="--c:#15803D">א</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">אהבת ארץ ישראל</h3></div><p class="book-desc"><b>הרב אריאל כבריתי</b> · מעלות הדר בארץ ישראל והחיוב לדור בה — מחז״ל ומהזוהר הקדוש. מאת הרב אריאל כבריתי.</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">88 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div><div class="book" data-desc="חומר הענין של ישוב ארץ ישראל וגודל החסרון למי שלא זכה לו — מהדורה שנייה (תשפ״ב). ישראל ראזנבערג" data-href="pdf/ey11.pdf" data-title="בארץ החיים" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#15803D"><div class="book-cover"><img alt="בארץ החיים" loading="lazy" src="covers/ey11.jpg"><span class="cover-letter" style="--c:#15803D">ב</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">בארץ החיים</h3></div><p class="book-desc"><b>ישראל ראזנבערג</b> · חומר הענין של ישוב ארץ ישראל וגודל החסרון למי שלא זכה לו — מהדורה שנייה (תשפ״ב).</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">274 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div><div class="book" data-desc="ספר גדול בשבח ארץ ישראל ובעבודת ה׳ בה — מחז״ל, מהראשונים ומהאחרונים. מאת הרב אפרים גלאסמאן. הרב אפרים גלאסמאן" data-href="pdf/ey12.pdf" data-title="שבחה של ארץ ישראל" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#15803D"><div class="book-cover"><img alt="שבחה של ארץ ישראל" loading="lazy" src="covers/ey12.jpg"><span class="cover-letter" style="--c:#15803D">ש</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">שבחה של ארץ ישראל</h3></div><p class="book-desc"><b>הרב אפרים גלאסמאן</b> · ספר גדול בשבח ארץ ישראל ובעבודת ה׳ בה — מחז״ל, מהראשונים ומהאחרונים. מאת הרב אפרים גלאסמאן.</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">449 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div></div></section>
+<section class="cat-section" data-cat="kuntres" style="--c:#0369A1"><div class="cat-head"><div class="cat-head-right"><span class="cat-emoji">📰</span><div><h2 class="cat-name">קונטרסים וגליונות</h2><span class="cat-count">2 ספרים</span></div></div></div><div class="books-grid"><div class="book" data-desc="קונטרס בשישה פרקים: קדושת ארץ ישראל כתכלית התורה והמצוות ושנייה לקדושת השכינה. נחלת ה׳ — מודיעין עילית" data-href="pdf/ey10.pdf" data-title="קדושת ארץ ישראל" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#0369A1"><div class="book-cover"><img alt="קדושת ארץ ישראל" loading="lazy" src="covers/ey10.jpg"><span class="cover-letter" style="--c:#0369A1">ק</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">קדושת ארץ ישראל</h3></div><p class="book-desc"><b>נחלת ה׳ — מודיעין עילית</b> · קונטרס בשישה פרקים: קדושת ארץ ישראל כתכלית התורה והמצוות ושנייה לקדושת השכינה.</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">30 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div><div class="book" data-desc="אוסף גליונות ״נחלת ה׳״ — דברי חז״ל ורבותינו, סיפורים ופנינים בענייני ארץ ישראל על הפרשה והמועדים. נחלת ה׳ — מודיעין עילית" data-href="pdf/ey13.pdf" data-title="נחלת ה׳" onclick="openBook(event,this)" role="link" tabindex="0" style="--c:#0369A1"><div class="book-cover"><img alt="נחלת ה׳" loading="lazy" src="covers/ey13.jpg"><span class="cover-letter" style="--c:#0369A1">נ</span></div><div class="book-body"><div class="book-top"><h3 class="book-title">נחלת ה׳</h3></div><p class="book-desc"><b>נחלת ה׳ — מודיעין עילית</b> · אוסף גליונות ״נחלת ה׳״ — דברי חז״ל ורבותינו, סיפורים ופנינים בענייני ארץ ישראל על הפרשה והמועדים.</p><div class="book-foot"><span class="ftype">📘 ספר</span><span class="fsize">305 עמ׳</span><span class="open-cta">קריאה ←</span></div></div></div></div></section>
+<div class="no-results" id="noResults">לא נמצאו ספרים מתאימים לחיפוש</div>
+</main>
+<footer class="foot">
+<div class="foot-deco">۞</div>
+  ספרי ארץ ישראל · 7 ספרים
+  <span class="foot-love">״כי רצו עבדיך את אבניה ואת עפרה יחוננו״</span>
+</footer>
+<script>
+const sections = Array.from(document.querySelectorAll('.cat-section'));
+const books = Array.from(document.querySelectorAll('.book'));
+const noResults = document.getElementById('noResults');
+
+function showAll(){
+  document.getElementById('search').value='';
+  sections.forEach(s=>s.classList.remove('hide'));
+  books.forEach(b=>b.classList.remove('hide'));
+  document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
+  noResults.classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function filterCat(id){
+  document.getElementById('search').value='';
+  books.forEach(b=>b.classList.remove('hide'));
+  sections.forEach(s=>s.classList.toggle('hide', s.dataset.cat!==id));
+  document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
+  const active=[...document.querySelectorAll('.nav-pill')].find(p=>p.getAttribute('onclick').includes("'"+id+"'"));
+  if(active)active.classList.add('active');
+  noResults.classList.remove('show');
+  const sec=document.querySelector('.cat-section[data-cat="'+id+'"]');
+  if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function doSearch(q){
+  q=q.trim().toLowerCase();
+  document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
+  if(!q){
+    sections.forEach(s=>s.classList.remove('hide'));
+    books.forEach(b=>b.classList.remove('hide'));
+    noResults.classList.remove('show');
+    return;
+  }
+  let anyVisible=false;
+  sections.forEach(sec=>{
+    let secHas=false;
+    sec.querySelectorAll('.book').forEach(b=>{
+      const t=(b.dataset.title||'').toLowerCase();
+      const d=(b.dataset.desc||'').toLowerCase();
+      const match=t.includes(q)||d.includes(q);
+      b.classList.toggle('hide',!match);
+      if(match){secHas=true;anyVisible=true;}
+    });
+    sec.classList.toggle('hide',!secHas);
+  });
+  noResults.classList.toggle('show',!anyVisible);
+}
+
+function openBook(e, el){
+  if(e.target.closest('.buy-btn')) return;
+  if(e.type==='keydown' && e.key!=='Enter' && e.key!==' ') return;
+  if(e.type==='keydown') e.preventDefault();
+  window.open(el.dataset.href, '_blank', 'noopener');
+}
+document.querySelectorAll('.book').forEach(b=>b.addEventListener('keydown', e=>openBook(e,b)));
+</script>
+</body></html>
